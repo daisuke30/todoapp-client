@@ -12,7 +12,7 @@ export const authenticationService = {
 };
 
 function login(state) {
-  fetch('http://localhost:1313/login', {
+  fetch(process.env.SERVER_URL + '/login', {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'

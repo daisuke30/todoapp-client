@@ -49,7 +49,7 @@ class TaskList extends React.Component {
       },
       mode: 'cors',
     };
-    fetch('http://localhost:1313/api/tasks', requestOptions)
+    fetch(process.env.SERVER_URL + '/api/tasks', requestOptions)
     .then(x => x.json())
     .then(res => {
       this.setState({
@@ -74,7 +74,7 @@ class TaskList extends React.Component {
       method: 'PUT',
       body: value,
     };
-    fetch(`http://localhost:1313/api/tasks/${value.ID}/completed`, requestOptions)
+    fetch( process.env.SERVER_URL + `/api/tasks/${value.ID}/completed`, requestOptions)
     .then(res => {
       this.fetchTasks()
     })
@@ -98,7 +98,7 @@ class TaskList extends React.Component {
       method: 'DELETE',
       body: value,
     };
-    fetch(`http://localhost:1313/api/tasks/${value.ID}`, requestOptions)
+    fetch(process.env.SERVER_URL + `/api/tasks/${value.ID}`, requestOptions)
     .then(res => {
       this.fetchTasks()
     })

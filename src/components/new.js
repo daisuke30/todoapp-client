@@ -50,7 +50,7 @@ class TaskNew extends React.Component {
       redirect: 'follow',
       body: JSON.stringify(this.state),
     };
-    fetch('http://localhost:1313/api/tasks', requestOptions)
+    fetch(process.env.SERVER_URL + '/api/tasks', requestOptions)
     .then(response => response.json())
     .then(res => {
       history.push('/list');

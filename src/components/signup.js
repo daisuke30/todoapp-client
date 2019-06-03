@@ -51,7 +51,7 @@ class Signup extends React.Component {
   }
 
   handleSubmit() {
-    fetch('http://localhost:1313/signup', {
+    fetch(process.env.SERVER_URL + '/signup', {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
