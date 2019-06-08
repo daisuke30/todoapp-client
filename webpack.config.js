@@ -6,6 +6,13 @@ const htmlWebpackPlugin = new HtmlWebPackPlugin({
 });
 
 module.exports = {
+  entry: {
+    app: './src/index.js',
+  },
+  output: {
+    filename: '[name].js',
+    path: __dirname + '/dist'
+  },
   devServer: {
     historyApiFallback: true
   },
@@ -13,6 +20,15 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: "babel-loader"
+          }
+        ]
+      },
+      {
+        test: /\.jsx$/,
         exclude: /node_modules/,
         use: [
           {
